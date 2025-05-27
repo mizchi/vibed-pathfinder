@@ -1,0 +1,36 @@
+{
+  "tasks": {
+    "test": {
+      "command": "deno test -A --reporter=dot",
+      "description": "@tdd @ci: Run tests. It can take `deno task test <file>`. tag: @tdd @ci"
+    },
+    "test:cov": {
+      "command": "deno test -A --reporter=dot --coverage=coverage",
+      "description": "@refactor: Run tests. It can take `deno task test <file>`"
+    },
+    "test:lint": {
+      "command": "deno run -A npm:eslint --quiet src",
+      "description": "@tdd @ci: lint all"
+    },
+    "check:lint": {
+      "command": "deno run -A npm:eslint",
+      "description": "@refactor: lint for refactor. It can take `deno task check:lint <file>`"
+    },
+    "check:module-export": {
+      "command": "deno run -A npm:tsr src/mod.ts 'src/.*\\.test\\.ts' 'spec/.*\\.test\\.ts' 'examples/.*\\.ts' eslint.config.ts",
+      "description": "It detects dead code as a module. @refactor"
+    }
+  },
+  "imports": {
+    "@eslint/js": "npm:@eslint/js@^9.27.0",
+    "@std/expect": "jsr:@std/expect@^1.0.16",
+    "@typescript-eslint/eslint-plugin": "npm:@typescript-eslint/eslint-plugin@^8.32.1",
+    "@typescript-eslint/parser": "npm:@typescript-eslint/parser@^8.32.1",
+    "@typescript-eslint/utils": "npm:@typescript-eslint/utils@^8.32.1",
+    "eslint": "npm:eslint@^9.27.0",
+    "eslint-plugin-import": "npm:eslint-plugin-import@^2.31.0",
+    "eslint-plugin-unused-imports": "npm:eslint-plugin-unused-imports@^4.1.4",
+    "neverthrow": "npm:neverthrow@^8.2.0",
+    "typescript-eslint": "npm:typescript-eslint@^8.32.1"
+  }
+}
