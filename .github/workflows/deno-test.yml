@@ -17,7 +17,7 @@ jobs:
       - name: Set up Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v2.22.0 # Updated version
+          deno-version: v2.3.3 # Corrected latest version
 
       - name: Run Deno tests
         run: deno task test
